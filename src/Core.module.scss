@@ -1,0 +1,34 @@
+.btn{
+  @apply bg-blue-400 text-white text-2xl px-20 py-3 rounded-full  hover:bg-blue-300
+}
+.input{
+  &[type=text]{@apply border-2 w-full p-3 text-xl rounded-xl}
+
+}
+.h1{
+  @apply font-bold text-2xl
+}
+::-webkit-calendar-picker-indicator, .radio{
+  display: none;
+}
+.label_radio{
+  @apply relative px-2
+}
+
+//.label_radio{
+//  ::before{
+//    position: absolute;
+//    content: "";
+//    background: lightgray;
+//    width: 20px;
+//    height: 20px;
+//    border-radius: 50%;
+//    top: 2px;
+//    right: 100%;
+//  }
+//}
+.label_radio:before{
+
+  padding: 2px;
+  border: 3px solid dodgerblue;
+}

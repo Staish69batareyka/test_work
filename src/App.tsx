@@ -1,10 +1,17 @@
-import {createElement as e} from "react";
+import style from "./Core.module.scss"
+import './index.css'
+import Welcome from "./components/Welcome/Welcome.tsx";
+import {UploadPhoto} from "./components/UploadPhoto/UploadPthoto.tsx";
+import Survey from "./components/Survey/Survey.tsx";
 function App() {
 
-  return e("div", {className: "conteiner"}, [
-      e('h1', {className: ""}, "Test-JSX"),
-      e("button", {className: 'btn'}, "click")
-  ])
+  return (
+      <>
+          {/*<Welcome></Welcome>*/}
+          {/*<UploadPhoto></UploadPhoto>*/}
+          <Survey></Survey>
+      </>
+  )
 }
 
 export default App
