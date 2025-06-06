@@ -17,10 +17,9 @@ export default function Survey(){
 
                 <div className="mb-10">
                     <label className="block">Пол ребёнка</label>
-                    <div className="flex items-center gap-10">
+                    <div className="flex items-center gap-10 ml-5">
                         <div className="flex items-center"><input className={style.radio} type="radio" id="man"/><label htmlFor="man" className={style.label_radio}>Мужской</label></div>
-                        <div className="flex items-center"><input className={style.radio} type="radio" id="woman"/><label
-                            htmlFor="woman" className={style.label_radio}>Женский</label></div>
+                        <div className="flex items-center"><input className={style.radio} type="radio" id="woman"/><label htmlFor="woman" className={style.label_radio}>Женский</label></div>
                     </div>
                 </div>
 
@@ -31,7 +30,7 @@ export default function Survey(){
 
             </div>
 
-            <div className="bg-red-50 p-5 rounded-3xl text-red-600">
+            <div className="bg-red-50 p-5 rounded-3xl text-red-600 my-10">
                 <div>
                     <div><img/></div>
                     <div>Пожалуйста, внимательно прочитайте каждый вопрос и выберите наиболее подходящий вариант ответа,
@@ -42,6 +41,18 @@ export default function Survey(){
                 <div>
                     <div><img/></div>
                     <div>Все вопросы обязательны к заполнению</div>
+                </div>
+            </div>
+
+            <div>
+                <div className={style.h1}>Раздел 1. Эмоциональная сфера</div>
+                <div>Как часто ребенок выражает радость и удовольствие:</div>
+                <div className="flex items-center gap-10 ml-5">
+                    <div className="flex items-center"><input className={style.radio} type="radio" id="not-often"/><label htmlFor="not-often" className={style.label_radio}>Очень редко</label></div>
+                    <div className="flex items-center"><input className={style.radio} type="radio" id="idk"/><label htmlFor="idk" className={style.label_radio}>Редко</label></div>
+                    <div className="flex items-center"><input className={style.radio} type="radio" id="sometimes"/><label htmlFor="sometimes" className={style.label_radio}>Иногда</label></div>
+                    <div className="flex items-center"><input className={style.radio} type="radio" id="often"/><label htmlFor="often" className={style.label_radio}>Часто</label></div>
+                    <div className="flex items-center"><input className={style.radio} type="radio" id="always"/><label htmlFor="always" className={style.label_radio}>Всегда</label></div>
                 </div>
             </div>
 

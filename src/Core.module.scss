@@ -3,7 +3,6 @@
 }
 .input{
   &[type=text]{@apply border-2 w-full p-3 text-xl rounded-xl}
-
 }
 .h1{
   @apply font-bold text-2xl
@@ -14,21 +13,33 @@
 .label_radio{
   @apply relative px-2
 }
+.label_radio::before {
+  position: absolute;
+  content: "";
+  background: lightgray;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  top: 2px;
+  right: 100%;
 
-//.label_radio{
-//  ::before{
-//    position: absolute;
-//    content: "";
-//    background: lightgray;
-//    width: 20px;
-//    height: 20px;
-//    border-radius: 50%;
-//    top: 2px;
-//    right: 100%;
-//  }
-//}
-.label_radio:before{
-
+}
+.label_radio:after{
+  position: absolute;
+  content: "";
+  background: dodgerblue;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  top: 7px;
+  right: 106%;
+  display: none;
+}
+.radio:checked + .label_radio:after{
+  display: block;
+}
+.radio:checked + .label_radio:before {
+  background: transparent;
   padding: 2px;
   border: 3px solid dodgerblue;
 }
