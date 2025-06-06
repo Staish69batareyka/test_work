@@ -1,6 +1,11 @@
 import style from "./../../Core.module.scss"
+import Ranger from "./Ranger.tsx";
+import {data} from "./../data.tsx"
 
 export default function Survey(){
+
+
+
     return(
         <div className="mx-32 my-10">
             <div>
@@ -44,16 +49,53 @@ export default function Survey(){
                 </div>
             </div>
 
-            <div>
-                <div className={style.h1}>Раздел 1. Эмоциональная сфера</div>
-                <div>Как часто ребенок выражает радость и удовольствие:</div>
-                <div className="flex items-center gap-10 ml-5">
-                    <div className="flex items-center"><input className={style.radio} type="radio" id="not-often"/><label htmlFor="not-often" className={style.label_radio}>Очень редко</label></div>
-                    <div className="flex items-center"><input className={style.radio} type="radio" id="idk"/><label htmlFor="idk" className={style.label_radio}>Редко</label></div>
-                    <div className="flex items-center"><input className={style.radio} type="radio" id="sometimes"/><label htmlFor="sometimes" className={style.label_radio}>Иногда</label></div>
-                    <div className="flex items-center"><input className={style.radio} type="radio" id="often"/><label htmlFor="often" className={style.label_radio}>Часто</label></div>
-                    <div className="flex items-center"><input className={style.radio} type="radio" id="always"/><label htmlFor="always" className={style.label_radio}>Всегда</label></div>
+
+            {data.map((option) => (
+                <div className="my-10">
+                    <div className={style.h1}>{option.title}</div>
+                    {option.questions.map((ques) => (
+                        <div>
+                            <div className="text-xl my-10">{ques}</div>
+                            <Ranger></Ranger>
+                        </div>
+                        )
+                    )}
+
                 </div>
+            ))}
+
+            <div className="my-10">
+                <div className={style.h1}>Раздел 5. Общие вопросы</div>
+                <div>
+                    <div className="text-xl my-10">Как вы оцениваете общее эмоциональное состояние ребёнка:</div>
+                    <Ranger></Ranger>
+                </div>
+                <div className="my-10">
+                    <label className="block">Есть ли у вашего ребенка какие-либо особенности развития или поведения,
+                        о которых вы хотели бы сообщить дополнительно?</label>
+                    <textarea className={style.textarea}></textarea>
+                </div>
+                <div className="my-10">
+                    <label className="block">Какие, на ваш взгляд, сильные стороны и таланты есть у вашего ребенка?</label>
+                    <textarea className={style.textarea}></textarea>
+                </div>
+                <div className="my-10">
+                    <label className="block">Какие, на ваш взгляд, области требуют особого внимания и развития у вашего ребенка?</label>
+                    <textarea className={style.textarea}></textarea>
+                </div>
+                <div className="my-10">
+                    <label className="block">Обращались ли вы ранее к специалистам (психологу, неврологу, логопеду) по поводу развития или поведения вашего ребенка?</label>
+                    <textarea className={style.textarea}></textarea>
+                </div>
+            </div>
+
+            <div className="flex justify-between items-end p-10">
+                <div className="text-gray-500">Шаг 2/3</div>
+                <div className="flex justify-between items-end gap-2">
+                    <button className={style.btn2}>К загрузке рисунков</button>
+                    <button className={style.btn}>Узнать результаты</button>
+                </div>
+
             </div>
 
         </div>
