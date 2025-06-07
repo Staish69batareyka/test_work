@@ -2,7 +2,18 @@ import style from "./../../Core.module.scss"
 import UploadBtn from "./UploadBtn.tsx";
 import important from "./../../assets/img/important.svg"
 import {Link} from "react-router-dom";
+import {useState} from "react";
+
+const titles = ["Дом, дерево, человек", "Несуществующее животное", "Автопортрет"]
+
 export function UploadPhoto(){
+    const [files, setFiles] = useState<(File | null)[]>([null, null, null]);
+
+    const handleFileChange = (index: number, file: File | null) => {
+        const updated = [...files];
+        updated[index] = file;
+        setFiles(updated);
+    };
     return(
         <>
             <div className="mx-32 my-10">
@@ -13,18 +24,30 @@ export function UploadPhoto(){
                         Допустимые форматы файлов: jpg, jpeg, png, pdf. Размер не более 5 Мб</div>
                 </div>
                 <div className="grid grid-cols-1 mt-24 md:grid-cols-3">
-                    <div className="flex flex-col items-center gap-3">
-                        <UploadBtn></UploadBtn>
-                        <div>Дом, дерево, человек</div>
-                    </div>
-                    <div className="flex flex-col items-center gap-3">
-                        <UploadBtn></UploadBtn>
-                        <div>Несуществующее животное</div>
-                    </div>
-                    <div className="flex flex-col items-center gap-3">
-                        <UploadBtn></UploadBtn>
-                        <div>Автопортрет</div>
-                    </div>
+                    {
+                        titles.map((title, i) => (
+                            <div className="flex flex-col items-center gap-3">
+                                <UploadBtn
+                                    file={files[i]}
+                                    onFileChange={(file) => handleFileChange(i, file)}
+                                ></UploadBtn>
+                                <div>{title}</div>
+                            </div>
+                        ))
+                    }
+
+                    {/*<div className="flex flex-col items-center gap-3">*/}
+                    {/*    <UploadBtn></UploadBtn>*/}
+                    {/*    <div>Дом, дерево, человек</div>*/}
+                    {/*</div>*/}
+                    {/*<div className="flex flex-col items-center gap-3">*/}
+                    {/*    <UploadBtn></UploadBtn>*/}
+                    {/*    <div>Несуществующее животное</div>*/}
+                    {/*</div>*/}
+                    {/*<div className="flex flex-col items-center gap-3">*/}
+                    {/*    <UploadBtn></UploadBtn>*/}
+                    {/*    <div>Автопортрет</div>*/}
+                    {/*</div>*/}
                 </div>
             </div>
             <div className="flex justify-between items-end p-10">

@@ -2,15 +2,16 @@ import style from "./../../Core.module.scss"
 import Ranger from "./Ranger.tsx";
 import {data} from "./../data.tsx"
 import {Link} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import type { RootState } from "../Features/store/store.ts";
+import type { AppDispatch } from "../Features/store/store.ts";
+import {useState} from "react";
 
 import thunbs_1 from "./../../assets/img/thumbs-up.svg"
 import thunbs_2 from "./../../assets/img/thumbs-up_1.svg"
 import arrow_l from "./../../assets/img/arrow-left.svg"
 import arrow_r from "./../../assets/img/forward-right.svg"
-import {useDispatch, useSelector} from "react-redux";
-import type { RootState } from "../Features/store/store.ts";
-import type { AppDispatch } from "../Features/store/store.ts";
-import {useState} from "react";
+
 
 export function Survey() {
 
@@ -60,7 +61,6 @@ export function Survey() {
 
             const result = await response.json();
             console.log("Результат отправки:", result);
-            // Можно редиректить или показать уведомление
         } catch (error) {
             console.error("Ошибка при отправке:", error);
         }
