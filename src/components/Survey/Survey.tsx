@@ -51,26 +51,20 @@ export default function Survey(){
             </div>
 
 
-            {data.map((option) => (
-                <div className="my-10">
+            {data.map((option, oIndex) => (
+                <div className="my-10" key={oIndex}>
                     <div className={style.h1}>{option.title}</div>
-                    {option.questions.map((ques) => (
-                        <div>
+                    {option.questions.map((ques, qIndex) => (
+                        <div key={qIndex}>
                             <div className="text-xl my-10">{ques}</div>
-                            <Ranger></Ranger>
+                            <Ranger name={`option${oIndex}-question${qIndex}`}></Ranger>
                         </div>
                         )
                     )}
-
                 </div>
             ))}
 
             <div className="my-10">
-                <div className={style.h1}>Раздел 5. Общие вопросы</div>
-                <div>
-                    <div className="text-xl my-10">Как вы оцениваете общее эмоциональное состояние ребёнка:</div>
-                    <Ranger></Ranger>
-                </div>
                 <div className="my-10">
                     <label className="block">Есть ли у вашего ребенка какие-либо особенности развития или поведения,
                         о которых вы хотели бы сообщить дополнительно?</label>
