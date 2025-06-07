@@ -1,6 +1,7 @@
 import style from "./../../Core.module.scss"
 import Ranger from "./Ranger.tsx";
 import {data} from "./../data.tsx"
+import {Link} from "react-router-dom";
 
 export default function Survey(){
 
@@ -92,8 +93,8 @@ export default function Survey(){
             <div className="flex justify-between items-end p-10">
                 <div className="text-gray-500">Шаг 2/3</div>
                 <div className="flex justify-between items-end gap-2">
-                    <button className={style.btn2}>К загрузке рисунков</button>
-                    <button className={style.btn}>Узнать результаты</button>
+                    <Link to="/upload-photo"><button className={style.btn2}>К загрузке рисунков</button></Link>
+                    <Link to="/results"><button className={style.btn}>Узнать результаты</button></Link>
                 </div>
 
             </div>
