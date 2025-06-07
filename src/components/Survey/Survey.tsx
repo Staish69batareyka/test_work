@@ -2,9 +2,8 @@ import style from "./../../Core.module.scss"
 import Ranger from "./Ranger.tsx";
 import {data} from "./../data.tsx"
 import {Link} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
+import { useSelector} from "react-redux";
 import type { RootState } from "../Features/store/store.ts";
-import type { AppDispatch } from "../Features/store/store.ts";
 import {useState} from "react";
 
 import thunbs_1 from "./../../assets/img/thumbs-up.svg"
@@ -18,7 +17,6 @@ export function Survey() {
     const taskId = useSelector((state: RootState) => {
         return state.upload.taskId;
     });
-    const dispatch: AppDispatch = useDispatch();
     const [form, setForm] = useState({
         childName: "",
         childBirth: "",
@@ -98,25 +96,19 @@ export function Survey() {
                         <label className="block">Пол ребёнка</label>
                         <div className="flex items-center gap-10 ml-5">
                             <div className="flex items-center">
-                                <input
-                                    type="radio"
-                                    name="gender"
-                                    value="male"
-                                    checked={form.gender === "male"}
-                                    onChange={handleInputChange}
-                                />
-                                <label htmlFor="man" className={style.label_radio}>Мужской</label>
-                            </div>
+                                <input className={style.radio}
+                                       type="radio"
+                                       name="gender"
+                                       id="man"
+                                       onChange={handleInputChange}/>
+                                <label htmlFor="man" className={style.label_radio}>Мужской</label></div>
                             <div className="flex items-center">
-                                <input
-                                    type="radio"
-                                    name="gender"
-                                    value="female"
-                                    checked={form.gender === "female"}
-                                    onChange={handleInputChange}
-                                />
-                                <label htmlFor="woman" className={style.label_radio}>Женский</label>
-                            </div>
+                                <input className={style.radio}
+                                       type="radio"
+                                       name="gender"
+                                       id="woman"
+                                       onChange={handleInputChange}/>
+                                <label htmlFor="woman" className={style.label_radio}>Женский</label></div>
                         </div>
                     </div>
 
@@ -178,7 +170,6 @@ export function Survey() {
                         <textarea
                             className={style.textarea}
                             name="additional-1"
-                            value={form.additional}
                             onChange={handleInputChange}
                         />
                     </div>
@@ -188,7 +179,6 @@ export function Survey() {
                         <textarea
                             className={style.textarea}
                             name="additional-2"
-                            value={form.additional}
                             onChange={handleInputChange}
                         />
                     </div>
@@ -198,7 +188,6 @@ export function Survey() {
                         <textarea
                             className={style.textarea}
                             name="additiona-3"
-                            value={form.additional}
                             onChange={handleInputChange}
                         />
                     </div>
@@ -208,7 +197,6 @@ export function Survey() {
                         <textarea
                             className={style.textarea}
                             name="additional-4"
-                            value={form.additional}
                             onChange={handleInputChange}
                         />
                     </div>
