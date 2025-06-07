@@ -1,5 +1,7 @@
 import style from "../../Core.module.scss";
 
+import send from "../../assets/img/send.svg";
+
 export default function Results() {
     return(
         <>
@@ -85,8 +87,12 @@ export default function Results() {
             <div className="flex justify-between items-end p-10">
                 <div className="text-gray-500">Шаг 3/3</div>
                 <div className="flex justify-between items-end gap-2">
-                    <button className={style.btn}>Скачать результаты в PDF</button>
-                    <button className={style.btn}>Подельться результатами</button>
+                        <button className={`${style.btn} flex gap-5 items-center`}>Cкачать отчет в PDF
+                            <svg className="size-10" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M24.8354 16.6661L19.4991 22.0023M19.4991 22.0023L14.1629 16.6661M19.4991 22.0023V5.99512M31.5041 24.6687C31.5041 27.6158 29.115 30.0049 26.1679 30.0049H12.8304C9.88325 30.0049 7.49414 27.6158 7.49414 24.6687" stroke="#ffffff" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    <button className={`${style.btn} flex gap-5 items-center`}>Поделиться результатами<img src={send} className="size-10 stroke-white"/></button>
                 </div>
 
             </div>

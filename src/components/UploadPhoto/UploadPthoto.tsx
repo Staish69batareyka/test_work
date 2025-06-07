@@ -29,7 +29,11 @@ export function UploadPhoto(){
             </div>
             <div className="flex justify-between items-end p-10">
                 <div className="text-gray-500">Шаг 1/3</div>
-                <Link to="/survey"><button className={style.btn}>Далее</button></Link>
+                <Link to="/survey"><button className={`${style.btn} flex items-center gap-2`}>Далее
+                    <svg className="size-10" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 12L5 12M19 12L14 17M19 12L14 7" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button></Link>
             </div>
         </>
     )
