@@ -1,7 +1,7 @@
 import './index.css'
 import Welcome from "./components/Welcome/Welcome.tsx";
 import {UploadPhoto} from "./components/UploadPhoto/UploadPthoto.tsx";
-import Survey from "./components/Survey/Survey.tsx";
+import {Survey} from "./components/Survey/Survey.tsx";
 import Results from "./components/Results/Results.tsx";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop.tsx";

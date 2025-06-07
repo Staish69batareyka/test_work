@@ -1,40 +1,38 @@
-import style from "../../Core.module.scss"
-import { useAppDispatch, useAppSelector } from "./../Features/hooks.ts"
-import { setAnswer } from "./../../components/Features/store/surveySlice.ts"
+import style from "./../../Core.module.scss"
 
-export default function Ranger({ name }: { name: string }) {
-    const dispatch = useAppDispatch()
-    const selected = useAppSelector(state => state.survey.answers[name])
-
-    const handleChange = (value: string) => {
-        dispatch(setAnswer({ questionId: name, answer: value }))
-    }
-
-    const options = [
-        { id: "very-rarely", label: "Очень редко" },
-        { id: "rarely", label: "Редко" },
-        { id: "sometimes", label: "Иногда" },
-        { id: "often", label: "Часто" },
-        { id: "always", label: "Всегда" },
-    ]
+export default function Ranger(
+    {
+        name,
+        onChange,
+    }: {
+    name: string;
+    onChange: (value: string) => void;
+    })
+    {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        onChange(e.target.value);
+    };
 
     return (
         <div className="flex items-center gap-10 ml-5">
-            {options.map(opt => (
-                <div className="flex items-center" key={opt.id}>
-                    <input
-                        className={style.radio}
-                        type="radio"
-                        name={name}
-                        id={`${name}-${opt.id}`}
-                        checked={selected === opt.id}
-                        onChange={() => handleChange(opt.id)}
-                    />
-                    <label htmlFor={`${name}-${opt.id}`} className={style.label_radio}>
-                        {opt.label}
-                    </label>
-                </div>
-            ))}
+            {["Очень редко", "Редко", "Иногда", "Часто", "Всегда"].map((label, index) => {
+                const value = ["very-rarely", "rarely", "sometimes", "often", "always"][index];
+                return (
+                    <div key={value} className="flex items-center">
+                        <input
+                            className={style.radio}
+                            type="radio"
+                            name={name}
+                            id={`${name}-${value}`}
+                            value={value}
+                            onChange={handleChange}
+                        />
+                        <label htmlFor={`${name}-${value}`} className={style.label_radio}>
+                            {label}
+                        </label>
+                    </div>
+                );
+            })}
         </div>
-    )
+    );
 }

@@ -1,9 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import surveyReducer from './surveySlice'
+import uploadReducer from './uploadSlice'
 
 export const store = configureStore({
     reducer: {
         survey: surveyReducer,
+        upload: uploadReducer,
+
     },
 })
 
